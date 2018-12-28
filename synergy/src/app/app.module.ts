@@ -11,9 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginService } from './_servicios/login.service';
+import { MatriculaService } from './_servicios/matricula.service';
+
 import { AuthGuard } from './_guards/auth.guard';
 import { PieComponent } from './pie/pie.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
+import { UnidadComponent } from './unidad/unidad.component';
+import { NivelComponent } from './nivel/nivel.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
     LoginComponent,
     HomeComponent,
     PieComponent,
-    EncabezadoComponent
+    EncabezadoComponent,
+    UnidadComponent,
+    NivelComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,8 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
   ],
   providers: [
     AuthGuard,
-    LoginService
+    LoginService,
+    MatriculaService
   ],
   bootstrap: [AppComponent]
 })

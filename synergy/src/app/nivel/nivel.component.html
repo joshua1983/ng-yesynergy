@@ -1,0 +1,11 @@
+<encabezado titulo="Bienvenido"></encabezado>
+
+<ul>
+  <li *ngFor="let nivel of niveles">
+    <a [routerLink]="['/unidad', libro, nivel]" >
+    {{nivel}}
+    </a>
+  </li>
+</ul>
+
+<pie-synergy></pie-synergy>
