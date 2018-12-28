@@ -1,0 +1,13 @@
+.encabezado{
+  background-color: #8a2582;
+  height: 40%;
+  width: 100%;
+  color: white;
+  position: sticky;
+  text-align: center;
+  display: table;
+}
+.encabezado-texto{
+  display: table-cell;
+  vertical-align: middle;
+}

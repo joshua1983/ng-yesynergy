@@ -1,0 +1,32 @@
+input{
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  border: 1px solid #821279;
+  padding: 10px;
+}
+input:focus{
+  outline: none;
+}
+
+.logo-synergy{
+  padding-top: 15%;
+  padding-bottom: 5%;
+}
+
+.boton-login{
+  width: 20%;
+}
+
+*:focus{
+  outline: none;
+}
+
+@media only screen and (min-width: 400){
+  .logo-synergy{
+    height: auto;
+    width: auto;
+    max-height: 350px;
+    max-width: 350px;
+  }
+}

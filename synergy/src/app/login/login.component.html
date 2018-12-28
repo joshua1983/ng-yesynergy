@@ -1,0 +1,36 @@
+
+
+<div class="row">
+
+  <div class="col">
+    <div class="text-center logo-synergy">
+      <img class="img-responsive" src="assets/img/logo.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="color-verde-titulo2 text-center">
+      Inicio de sesion
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="text-center">
+        <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+          <div class="form-group">
+            <input type="text" formControlName="username" size="30" class="control" placeholder="Usuario">
+          </div>
+          <div class="form-group">
+            <input type="password"  formControlName="password"  size="30" class="control" placeholder="Contraseña">
+          </div>
+          <div class="form-group">
+            <button type="submit" id="login-button" class="btn btn-success boton-login">Entrar</button>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+

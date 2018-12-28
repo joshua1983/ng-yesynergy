@@ -1,0 +1,19 @@
+.pie-pagina{
+  background-color: #8a2582;
+  height: 20%;
+  max-height: 20%;
+  width: 100%;
+  color: white;
+  position: sticky;
+  text-align: center;
+  display: table;
+}
+.pie-texto{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.pie-texto img{
+  height: 30%;
+  width: auto;
+}
