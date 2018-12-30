@@ -20,4 +20,9 @@ export class MatriculaService{
 
   }
 
+  getPaginas(libro:string, nivel:string, unidad:string){
+    let url = "http://admin.yesynergy.com/index.php/mobile/getPaginasJSON/"+nivel+"/"+unidad+"/"+libro;
+    return this.http.get(url);
+  }
+
 }

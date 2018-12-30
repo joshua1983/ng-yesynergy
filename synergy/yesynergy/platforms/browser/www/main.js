@@ -114,6 +114,49 @@ var LoginService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/_servicios/matricula.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/_servicios/matricula.service.ts ***!
+  \*************************************************/
+/*! exports provided: MatriculaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatriculaService", function() { return MatriculaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var MatriculaService = /** @class */ (function () {
+    function MatriculaService(http) {
+        this.http = http;
+    }
+    MatriculaService.prototype.getNiveles = function (id) {
+        var url = "http://admin.yesynergy.com/index.php/mobile/getNivelesEstudiante/" + id;
+        return this.http.get(url);
+    };
+    MatriculaService.prototype.getUnidades = function (id, nivel) {
+        var url = "http://admin.yesynergy.com/index.php/mobile/getUnidadesEstudiante/" + id + "/" + nivel;
+        return this.http.get(url);
+    };
+    MatriculaService.prototype.getPaginas = function (libro, nivel, unidad) {
+        var url = "http://admin.yesynergy.com/index.php/mobile/getPaginasJSON/" + nivel + "/" + unidad + "/" + libro;
+        return this.http.get(url);
+    };
+    MatriculaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], MatriculaService);
+    return MatriculaService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -129,7 +172,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+/* harmony import */ var _unidad_unidad_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./unidad/unidad.component */ "./src/app/unidad/unidad.component.ts");
+/* harmony import */ var _nivel_nivel_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./nivel/nivel.component */ "./src/app/nivel/nivel.component.ts");
+/* harmony import */ var _visor_visor_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./visor/visor.component */ "./src/app/visor/visor.component.ts");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+
+
+
 
 
 
@@ -137,10 +186,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]] },
     { path: 'home',
         component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+    },
+    { path: 'unidad/:libro/:nivel',
+        component: _unidad_unidad_component__WEBPACK_IMPORTED_MODULE_5__["UnidadComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+    },
+    { path: 'nivel/:libro',
+        component: _nivel_nivel_component__WEBPACK_IMPORTED_MODULE_6__["NivelComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
+    },
+    { path: 'visor/:libro/:nivel/:unidad',
+        component: _visor_visor_component__WEBPACK_IMPORTED_MODULE_7__["VisorComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]]
     },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: '**', redirectTo: '' }
@@ -235,9 +296,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _servicios_login_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_servicios/login.service */ "./src/app/_servicios/login.service.ts");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
-/* harmony import */ var _pie_pie_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pie/pie.component */ "./src/app/pie/pie.component.ts");
-/* harmony import */ var _encabezado_encabezado_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./encabezado/encabezado.component */ "./src/app/encabezado/encabezado.component.ts");
+/* harmony import */ var _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_servicios/matricula.service */ "./src/app/_servicios/matricula.service.ts");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./_guards/auth.guard */ "./src/app/_guards/auth.guard.ts");
+/* harmony import */ var _pie_pie_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pie/pie.component */ "./src/app/pie/pie.component.ts");
+/* harmony import */ var _encabezado_encabezado_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./encabezado/encabezado.component */ "./src/app/encabezado/encabezado.component.ts");
+/* harmony import */ var _unidad_unidad_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./unidad/unidad.component */ "./src/app/unidad/unidad.component.ts");
+/* harmony import */ var _nivel_nivel_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./nivel/nivel.component */ "./src/app/nivel/nivel.component.ts");
+/* harmony import */ var _visor_visor_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./visor/visor.component */ "./src/app/visor/visor.component.ts");
+/* harmony import */ var _visor_html_visor_html_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./visor-html/visor-html.component */ "./src/app/visor-html/visor-html.component.ts");
+
+
+
+
+
 
 
 
@@ -260,8 +331,12 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-                _pie_pie_component__WEBPACK_IMPORTED_MODULE_11__["PieComponent"],
-                _encabezado_encabezado_component__WEBPACK_IMPORTED_MODULE_12__["EncabezadoComponent"]
+                _pie_pie_component__WEBPACK_IMPORTED_MODULE_12__["PieComponent"],
+                _encabezado_encabezado_component__WEBPACK_IMPORTED_MODULE_13__["EncabezadoComponent"],
+                _unidad_unidad_component__WEBPACK_IMPORTED_MODULE_14__["UnidadComponent"],
+                _nivel_nivel_component__WEBPACK_IMPORTED_MODULE_15__["NivelComponent"],
+                _visor_visor_component__WEBPACK_IMPORTED_MODULE_16__["VisorComponent"],
+                _visor_html_visor_html_component__WEBPACK_IMPORTED_MODULE_17__["VisorHTMLComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -271,8 +346,9 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"]
             ],
             providers: [
-                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"],
-                _servicios_login_service__WEBPACK_IMPORTED_MODULE_9__["LoginService"]
+                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"],
+                _servicios_login_service__WEBPACK_IMPORTED_MODULE_9__["LoginService"],
+                _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_10__["MatriculaService"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
@@ -302,7 +378,7 @@ module.exports = ".encabezado{\n  background-color: #8a2582;\n  height: 40%;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"encabezado\">\n  <div class=\"encabezado-texto\">\n      {{titulo}}\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col\">\n      <div class=\"encabezado\">\n          <div class=\"encabezado-texto\">\n              {{titulo}}\n          </div>\n        </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -362,7 +438,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<encabezado titulo=\"Bienvenido\"></encabezado>\n<p>\n  home works!\n</p>\n<pie-synergy></pie-synergy>\n"
+module.exports = "\n\n      <encabezado titulo=\"Bienvenido\"></encabezado>\n\n\n<ul>\n  <li>\n    <a [routerLink]=\"['/nivel', 'chk']\" >\n      checking up\n    </a>\n\n  </li>\n  <li>\n    homework\n  </li>\n  <li>\n    test\n  </li>\n</ul>\n\n<pie-synergy></pie-synergy>\n"
 
 /***/ }),
 
@@ -502,6 +578,75 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/nivel/nivel.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/nivel/nivel.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25pdmVsL25pdmVsLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/nivel/nivel.component.html":
+/*!********************************************!*\
+  !*** ./src/app/nivel/nivel.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<encabezado titulo=\"Bienvenido\"></encabezado>\n\n<ul>\n  <li *ngFor=\"let nivel of niveles\">\n    <a [routerLink]=\"['/unidad', libro, nivel]\" >\n    {{nivel}}\n    </a>\n  </li>\n</ul>\n\n<pie-synergy></pie-synergy>\n"
+
+/***/ }),
+
+/***/ "./src/app/nivel/nivel.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/nivel/nivel.component.ts ***!
+  \******************************************/
+/*! exports provided: NivelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NivelComponent", function() { return NivelComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_servicios/matricula.service */ "./src/app/_servicios/matricula.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var NivelComponent = /** @class */ (function () {
+    function NivelComponent(matriculaService, route) {
+        this.matriculaService = matriculaService;
+        this.route = route;
+    }
+    NivelComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var usuario = JSON.parse(localStorage.getItem('user'));
+        this.libro = this.route.snapshot.paramMap.get('libro');
+        this.matriculaService.getNiveles(usuario.usuidentificador).subscribe(function (data) {
+            _this.niveles = data;
+            console.log(_this.niveles);
+        });
+    };
+    NivelComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-nivel',
+            template: __webpack_require__(/*! ./nivel.component.html */ "./src/app/nivel/nivel.component.html"),
+            styles: [__webpack_require__(/*! ./nivel.component.css */ "./src/app/nivel/nivel.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__["MatriculaService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+    ], NivelComponent);
+    return NivelComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pie/pie.component.css":
 /*!***************************************!*\
   !*** ./src/app/pie/pie.component.css ***!
@@ -520,7 +665,7 @@ module.exports = ".pie-pagina{\n  background-color: #8a2582;\n  height: 20%;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pie-pagina\">\n    <div class=\"pie-texto\">\n        <img src=\"assets/img/logo_i.png\" alt=\"\">\n    </div>\n  </div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col\">\n      <div class=\"pie-pagina\">\n          <div class=\"pie-texto\">\n              <img src=\"assets/img/logo_i.png\" alt=\"\">\n          </div>\n        </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -552,6 +697,206 @@ var PieComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], PieComponent);
     return PieComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/unidad/unidad.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/unidad/unidad.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VuaWRhZC91bmlkYWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/unidad/unidad.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/unidad/unidad.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<encabezado titulo=\"Bienvenido\"></encabezado>\n\n<ul>\n  <li *ngFor=\"let unidad of unidades\">\n    <a [routerLink]=\"['/visor', libro, nivel, unidad]\" >\n      {{unidad}}\n    </a>\n\n  </li>\n</ul>\n\n<pie-synergy></pie-synergy>\n"
+
+/***/ }),
+
+/***/ "./src/app/unidad/unidad.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/unidad/unidad.component.ts ***!
+  \********************************************/
+/*! exports provided: UnidadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnidadComponent", function() { return UnidadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_servicios/matricula.service */ "./src/app/_servicios/matricula.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var UnidadComponent = /** @class */ (function () {
+    function UnidadComponent(matriculaService, route) {
+        this.matriculaService = matriculaService;
+        this.route = route;
+    }
+    UnidadComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var usuario = JSON.parse(localStorage.getItem('user'));
+        this.nivel = this.route.snapshot.paramMap.get('nivel');
+        this.libro = this.route.snapshot.paramMap.get('libro');
+        this.matriculaService.getUnidades(usuario.usuidentificador, this.route.snapshot.paramMap.get('nivel')).subscribe(function (data) {
+            _this.unidades = data;
+        });
+    };
+    UnidadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-unidad',
+            template: __webpack_require__(/*! ./unidad.component.html */ "./src/app/unidad/unidad.component.html"),
+            styles: [__webpack_require__(/*! ./unidad.component.css */ "./src/app/unidad/unidad.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__["MatriculaService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+    ], UnidadComponent);
+    return UnidadComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/visor-html/visor-html.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/visor-html/visor-html.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".contenedor{\n  padding: 1%;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlzb3ItaHRtbC92aXNvci1odG1sLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0NBQ2IiLCJmaWxlIjoic3JjL2FwcC92aXNvci1odG1sL3Zpc29yLWh0bWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250ZW5lZG9ye1xuICBwYWRkaW5nOiAxJTtcbn1cbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/visor-html/visor-html.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/visor-html/visor-html.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"contenedor\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div [innerHTML] = \"htmlRender\"></div>\n        </div>\n        <div class=\"card-footer\">\n          <div class=\"row\">\n            <div class=\"col text-center\">\n              <button class=\"btn btn-success\">Anterior</button>\n            </div>\n            <div class=\"col text-center\">\n              <button class=\"btn btn-success\">Siguiente</button>\n            </div>\n          </div>\n        </div>\n    </div>\n</div>\n\n\n\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/visor-html/visor-html.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/visor-html/visor-html.component.ts ***!
+  \****************************************************/
+/*! exports provided: VisorHTMLComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisorHTMLComponent", function() { return VisorHTMLComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var VisorHTMLComponent = /** @class */ (function () {
+    function VisorHTMLComponent() {
+    }
+    VisorHTMLComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], VisorHTMLComponent.prototype, "htmlRender", void 0);
+    VisorHTMLComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'visor-html',
+            template: __webpack_require__(/*! ./visor-html.component.html */ "./src/app/visor-html/visor-html.component.html"),
+            styles: [__webpack_require__(/*! ./visor-html.component.css */ "./src/app/visor-html/visor-html.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], VisorHTMLComponent);
+    return VisorHTMLComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/visor/visor.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/visor/visor.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Zpc29yL3Zpc29yLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/visor/visor.component.html":
+/*!********************************************!*\
+  !*** ./src/app/visor/visor.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<encabezado titulo=\"Bienvenido\"></encabezado>\n\n<visor-html\n  [htmlRender] =\"renderHTML\"\n>\n\n</visor-html>\n\n<pie-synergy></pie-synergy>\n"
+
+/***/ }),
+
+/***/ "./src/app/visor/visor.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/visor/visor.component.ts ***!
+  \******************************************/
+/*! exports provided: VisorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisorComponent", function() { return VisorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_servicios/matricula.service */ "./src/app/_servicios/matricula.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var VisorComponent = /** @class */ (function () {
+    function VisorComponent(route, matriculaService) {
+        this.route = route;
+        this.matriculaService = matriculaService;
+    }
+    VisorComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.nivel = this.route.snapshot.paramMap.get('nivel');
+        this.libro = this.route.snapshot.paramMap.get('libro');
+        this.unidad = this.route.snapshot.paramMap.get('unidad');
+        this.matriculaService.getPaginas(this.libro, this.nivel, this.unidad).subscribe(function (data) {
+            _this.paginas = data;
+            console.log(data);
+            _this.renderHTML = _this.paginas[2].html;
+        });
+    };
+    VisorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-visor',
+            template: __webpack_require__(/*! ./visor.component.html */ "./src/app/visor/visor.component.html"),
+            styles: [__webpack_require__(/*! ./visor.component.css */ "./src/app/visor/visor.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _servicios_matricula_service__WEBPACK_IMPORTED_MODULE_2__["MatriculaService"]])
+    ], VisorComponent);
+    return VisorComponent;
 }());
 
 

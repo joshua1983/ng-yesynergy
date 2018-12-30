@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UnidadComponent } from './unidad/unidad.component';
 import { NivelComponent } from './nivel/nivel.component';
+import { VisorComponent } from './visor/visor.component';
 
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   },
   { path: 'nivel/:libro',
     component: NivelComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'visor/:libro/:nivel/:unidad',
+    component: VisorComponent,
     canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },

@@ -1,0 +1,27 @@
+<encabezado titulo="Bienvenido"></encabezado>
+
+<div class="contenedor">
+    <div class="card">
+        <div class="card-body">
+            <visor-html
+              [htmlRender] ="renderHTML"
+            ></visor-html>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col text-center">
+              <button (click)="anterior()" class="btn btn-success">Anterior</button>
+            </div>
+            <div class="col text-center">
+              <button (click)="siguiente()" class="btn btn-success">Siguiente</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<pie-synergy></pie-synergy>

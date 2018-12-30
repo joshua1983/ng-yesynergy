@@ -2,7 +2,10 @@
 
 <ul>
   <li *ngFor="let unidad of unidades">
-    {{unidad}}
+    <a [routerLink]="['/visor', libro, nivel, unidad]" >
+      {{unidad}}
+    </a>
+
   </li>
 </ul>
 

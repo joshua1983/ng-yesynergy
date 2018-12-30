@@ -18,6 +18,8 @@ import { PieComponent } from './pie/pie.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { UnidadComponent } from './unidad/unidad.component';
 import { NivelComponent } from './nivel/nivel.component';
+import { VisorComponent } from './visor/visor.component';
+import { VisorHTMLComponent } from './visor-html/visor-html.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { NivelComponent } from './nivel/nivel.component';
     PieComponent,
     EncabezadoComponent,
     UnidadComponent,
-    NivelComponent
+    NivelComponent,
+    VisorComponent,
+    VisorHTMLComponent
   ],
   imports: [
     BrowserModule,
