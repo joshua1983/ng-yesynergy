@@ -1,12 +1,17 @@
-<encabezado titulo="Bienvenido"></encabezado>
 
-<ul>
-  <li *ngFor="let unidad of unidades">
-    <a [routerLink]="['/visor', libro, nivel, unidad]" >
-      {{unidad}}
-    </a>
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <div class="list-group text-center">
+        <div class="list-group-item" *ngFor="let unidad of unidades">
+            <a [routerLink]="['/libro', actividad, nivel, unidad]" >
+              <span><img src="assets/img/ico_libro.png" alt=""> Unidad {{unidad}}</span>
+            </a>
+          </div>
+    </div>
 
-  </li>
-</ul>
+  </div>
+  <div class="col"></div>
+</div>
 
-<pie-synergy></pie-synergy>
+

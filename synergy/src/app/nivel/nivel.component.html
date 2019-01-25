@@ -1,11 +1,23 @@
-<encabezado titulo="Bienvenido"></encabezado>
 
-<ul>
-  <li *ngFor="let nivel of niveles">
-    <a [routerLink]="['/unidad', libro, nivel]" >
-    {{nivel}}
-    </a>
-  </li>
-</ul>
 
-<pie-synergy></pie-synergy>
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+      <div class="list-group text-center">
+      <div class="list-group-item" *ngFor="let nivel of niveles">
+          <a [routerLink]="['/unidad', libro, nivel]" >
+
+            <img *ngIf="nivel=='A1'" src="assets/img/NivelA1.png" alt="">
+            <img *ngIf="nivel=='A21'" src="assets/img/NivelA21.png" alt="">
+            <img *ngIf="nivel=='A22'" src="assets/img/NivelA22.png" alt="">
+            <img *ngIf="nivel=='B1'" src="assets/img/NivelB1.png" alt="">
+            <img *ngIf="nivel=='B12'" src="assets/img/NivelB12.png" alt="">
+            <img *ngIf="nivel=='B22'" src="assets/img/NivelB22.png" alt="">
+
+          </a>
+      </div>
+      </div>
+  </div>
+  <div class="col"></div>
+</div>
+

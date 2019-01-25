@@ -2,9 +2,18 @@
   <div class="col">
       <div class="encabezado">
           <div class="encabezado-texto">
-              {{titulo}}
+            <div class="row">
+                <div class="col-10">
+                    {{titulo}}
+                </div>
+                <div class="col">
+                  <a [routerLink]="['/salir']" >
+                    <i class="fas fa-sign-out-alt"></i>
+                  </a>
+                </div>
+            </div>
+
           </div>
         </div>
   </div>
-</div>
-
+<br>

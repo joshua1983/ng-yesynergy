@@ -1,1 +1,67 @@
-<div [innerHTML] = "htmlRender"></div>
+
+<div [innerHTML] = "htmlRender | sanitizeHtml"></div>
+
+<div *ngIf="tipo==1" class="row">
+  <div class="col">
+      <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col text-center">
+                <button data-toggle="button" (click)="setValorSeleccionado(0)"  class="btn btn-warning">{{lbl[0]}}</button>
+              </div>
+              <div class="col text-center">
+                <button data-toggle="button" (click)="setValorSeleccionado(1)" class="btn btn-warning">{{lbl[1]}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+<div *ngIf="tipo==2" class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col text-center">
+                    <button data-toggle="button" (click)="setValorSeleccionado(0)"  class="btn btn-warning">{{lbl[0]}}</button>
+                  </div>
+                  <div class="col text-center">
+                    <button data-toggle="button" (click)="setValorSeleccionado(1)"  class="btn btn-warning">{{lbl[1]}}</button>
+                  </div>
+                  <div class="col text-center">
+                    <button data-toggle="button" (click)="setValorSeleccionado(2)"  class="btn btn-warning">{{lbl[2]}}</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo==3 && material==3" class="row">
+      <div class="col">
+          <div class="card">
+              <div class="card-body">
+                <textarea class="form-control" ></textarea>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div *ngIf="tipo==4" class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                  <span *ngIf="ids[0]!= undefined && ids[0]!='' && lbl[0] != undefined"><label>{{lbl[0]}}</label><input name= "{{ids[0]}}" [(ngModel)] = "valor[0]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[1]!= undefined && ids[1]!='' && lbl[1] != undefined"><label>{{lbl[1]}}</label><input name= "{{ids[1]}}" [(ngModel)] = "valor[1]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[2]!= undefined && ids[2]!='' && lbl[2] != undefined"><label>{{lbl[2]}}</label><input name= "{{ids[2]}}" [(ngModel)] = "valor[2]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[3]!= undefined && ids[3]!='' && lbl[3] != undefined"><label>{{lbl[3]}}</label><input name= "{{ids[3]}}" [(ngModel)] = "valor[3]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[4]!= undefined && ids[4]!='' && lbl[4] != undefined"><label>{{lbl[4]}}</label><input name= "{{ids[4]}}" [(ngModel)] = "valor[4]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[5]!= undefined && ids[5]!='' && lbl[5] != undefined"><label>{{lbl[5]}}</label><input name= "{{ids[5]}}" [(ngModel)] = "valor[5]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[6]!= undefined && ids[6]!='' && lbl[6] != undefined"><label>{{lbl[6]}}</label><input name= "{{ids[6]}}" [(ngModel)] = "valor[6]" class="form-control" type="text"><br></span>
+                  <span *ngIf="ids[7]!= undefined && ids[7]!='' && lbl[7] != undefined"><label>{{lbl[7]}}</label><input name= "{{ids[7]}}" [(ngModel)] = "valor[7]" class="form-control" type="text"><br></span>
+                </div>
+              </div>
+        </div>
+      </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from '../_servicios/login.service';
+
 
 @Component({
   selector: 'encabezado',
@@ -9,9 +11,18 @@ export class EncabezadoComponent implements OnInit {
 
   @Input('titulo') titulo: string;
 
-  constructor() { }
+
+  constructor(private loginService: LoginService) {
+
+  }
+
 
   ngOnInit() {
+
+  }
+
+  logout(){
+    this.loginService.logout()
   }
 
 }

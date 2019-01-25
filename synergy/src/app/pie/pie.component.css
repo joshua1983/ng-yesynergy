@@ -1,12 +1,13 @@
 .pie-pagina{
   background-color: #8a2582;
-  height: 20%;
-  max-height: 20%;
+  height: 10%;
+  max-height: 10%;
   width: 100%;
   color: white;
-  position: sticky;
+  position: relative;
   text-align: center;
   display: table;
+  top: 90%
 }
 .pie-texto{
   display: table-cell;

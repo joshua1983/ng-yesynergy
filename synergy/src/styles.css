@@ -6,3 +6,8 @@
   color: #0ea95e;
   padding: 1%
 }
+.fondo{
+  background-image: url('/assets/img/fondo.png');
+  background-position: center;
+  background-repeat: repeat;
+}

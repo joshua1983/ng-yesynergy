@@ -15,6 +15,7 @@ export class NivelComponent implements OnInit {
   constructor(private matriculaService:MatriculaService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    document.body.classList.add('fondo');
     let usuario =JSON.parse( localStorage.getItem('user') );
     this.libro = this.route.snapshot.paramMap.get('libro');
     this.matriculaService.getNiveles(usuario.usuidentificador).subscribe(
@@ -25,5 +26,6 @@ export class NivelComponent implements OnInit {
     )
 
   }
+
 
 }

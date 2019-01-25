@@ -28,4 +28,8 @@ export class LoginService{
   logout(){
     localStorage.removeItem('user');
   }
+
+  isLogged(){
+    return localStorage.getItem('user') != null;
+  }
 }

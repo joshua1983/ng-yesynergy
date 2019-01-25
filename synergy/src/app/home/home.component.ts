@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PieComponent } from '../pie/pie.component';
-import { EncabezadoComponent } from '../encabezado/encabezado.component';
+import { MatriculaService } from '../_servicios/matricula.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +8,19 @@ import { EncabezadoComponent } from '../encabezado/encabezado.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  niveles:any;
+  libro:string
+  constructor(private matriculaService:MatriculaService) { }
 
   ngOnInit() {
+    document.body.classList.add('fondo');
+    let usuario =JSON.parse( localStorage.getItem('user') );
+    this.matriculaService.getNiveles(usuario.usuidentificador).subscribe(
+      data => {
+        this.niveles = data;
+        console.log(this.niveles);
+      }
+    )
   }
 
 }

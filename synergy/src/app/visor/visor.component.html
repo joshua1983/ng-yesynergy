@@ -1,27 +1,27 @@
-<encabezado titulo="Bienvenido"></encabezado>
+
 
 <div class="contenedor">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" *ngIf="paginas != undefined && paginas.length > 0">
             <visor-html
-              [htmlRender] ="renderHTML"
+              #visorHtml
+              [htmlRender] = "renderHTML"
+              [ids] = "ids"
+              [lbl] = "lbl"
+              [valor] = "val"
+              [tipo] = "tipo"
+              [material] = "tipoMaterial"
             ></visor-html>
         </div>
         <div class="card-footer">
           <div class="row">
             <div class="col text-center">
-              <button (click)="anterior()" class="btn btn-success">Anterior</button>
+              <button *ngIf="visibleAnt" (click)="anterior()" class="btn btn-success">Anterior</button>
             </div>
             <div class="col text-center">
-              <button (click)="siguiente()" class="btn btn-success">Siguiente</button>
+              <button *ngIf="visibleSig" (click)="siguiente()" class="btn btn-success">Siguiente</button>
             </div>
           </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-<pie-synergy></pie-synergy>

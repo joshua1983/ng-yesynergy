@@ -1,21 +1,24 @@
 
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+      <div class="list-group text-center">
+      <div class="list-group-item" *ngFor="let nivel of niveles">
+          <a [routerLink]="['/material', nivel]" >
 
-      <encabezado titulo="Bienvenido"></encabezado>
+            <img *ngIf="nivel=='A1'" src="assets/img/NivelA1.png" alt="">
+            <img *ngIf="nivel=='A21'" src="assets/img/NivelA21.png" alt="">
+            <img *ngIf="nivel=='A22'" src="assets/img/NivelA22.png" alt="">
+            <img *ngIf="nivel=='B1'" src="assets/img/NivelB1.png" alt="">
+            <img *ngIf="nivel=='B12'" src="assets/img/NivelB12.png" alt="">
+            <img *ngIf="nivel=='B22'" src="assets/img/NivelB22.png" alt="">
+
+          </a>
+      </div>
+      </div>
+  </div>
+  <div class="col"></div>
+</div>
 
 
-<ul>
-  <li>
-    <a [routerLink]="['/nivel', 'chk']" >
-      checking up
-    </a>
 
-  </li>
-  <li>
-    homework
-  </li>
-  <li>
-    test
-  </li>
-</ul>
-
-<pie-synergy></pie-synergy>
