@@ -1,0 +1,15 @@
+{
+  "name": "com.yesynergy",
+  "version": "1.0.0",
+  "displayName": "yesynergy",
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "~7.1.4",
+    "cordova-ios": "~4.5.5"
+  }
+}

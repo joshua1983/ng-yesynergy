@@ -10,7 +10,7 @@ input:focus{
 }
 
 .logo-synergy{
-  padding-top: 15%;
+  padding-top: 5%;
   padding-bottom: 5%;
 }
 
@@ -22,11 +22,13 @@ input:focus{
   outline: none;
 }
 
-@media only screen and (min-width: 400){
+@media only screen and (min-width: 720){
   .logo-synergy{
     height: auto;
-    width: auto;
-    max-height: 350px;
-    max-width: 350px;
+    width: 100%;
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    max-width: 150px;
   }
 }

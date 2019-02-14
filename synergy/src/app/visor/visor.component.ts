@@ -41,11 +41,12 @@ export class VisorComponent implements OnInit {
     this.nivel = this.route.snapshot.paramMap.get('nivel');
     this.unidad = this.route.snapshot.paramMap.get('unidad');
     this.opcion = this.route.snapshot.paramMap.get('actividad');
-console.log(this.opcion);
+
     if (this.opcion !='1'){
       this.matriculaService.getPaginas(this.libro,this.nivel,this.unidad).subscribe(
         data => {
           this.paginas = data;
+console.log(data);
           if (this.paginas != undefined && this.paginas.length > 0){
             this.asignarDatos(this.contador);
             this.renderHTML = this.paginas[this.contador].html;
@@ -80,7 +81,7 @@ console.log(this.opcion);
 
   siguiente(){
     this.mensaje = this.visorHTML.guardarRespuesta(this.libro,this.nivel,this.unidad,this.tipo, this.ids[this.contador], this.val[this.contador]);
-    console.log(this.mensaje);
+
     this.contador++;
     if (this.contador < this.paginas.length){
       this.visibleSig = true;

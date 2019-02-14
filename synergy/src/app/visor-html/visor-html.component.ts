@@ -20,11 +20,15 @@ export class VisorHTMLComponent implements OnInit {
   valorSeleccionado:string;
 
 
+
+
   constructor(private servicioRespuestas:RespuestasService) {
    }
 
   ngOnInit() {
+    console.log(this.valor)
   }
+
 
   setValorSeleccionado(valor:number){
     this.valorSeleccionado = this.valor[valor];
@@ -33,14 +37,14 @@ export class VisorHTMLComponent implements OnInit {
   guardarRespuesta(libro:string, nivel:string, unidad:string, tipo:string, id:string, val:string):string{
     let usuario =JSON.parse( localStorage.getItem('user') );
     let i =0;
-    console.log(usuario);
+
     if (tipo=="4"){
       this.ids.forEach(id => {
         if (id != undefined && id != ''){
           this.servicioRespuestas.guardarRespuestaTipo1(libro,unidad,nivel,id,this.valor[i],usuario.usuidentificador)
           .subscribe(
             data =>{
-              console.log(data);
+
             }
           );
         }
@@ -54,7 +58,7 @@ export class VisorHTMLComponent implements OnInit {
       this.servicioRespuestas.guardarRespuestaTipo1(libro,unidad,nivel,id,this.valorSeleccionado,usuario.usuidentificador)
         .subscribe(
           data => {
-            console.log(data)
+
           }
         );
       return "";

@@ -8,10 +8,14 @@
 
             <div class="row">
               <div class="col text-center">
-                <button data-toggle="button" (click)="setValorSeleccionado(0)"  class="btn btn-warning">{{lbl[0]}}</button>
+                <label class="btn btn-warning" *ngIf="valor[0]!= undefined && valor[0]!='' && valor[0] != undefined">
+                  <input type="radio" (click)="setValorSeleccionado('valor[0]')" name='{{lbl[0]}}' autocomplete="off"> {{lbl[0]}}
+                </label>
               </div>
               <div class="col text-center">
-                <button data-toggle="button" (click)="setValorSeleccionado(1)" class="btn btn-warning">{{lbl[1]}}</button>
+                  <label class="btn btn-warning" *ngIf="valor[1]!= undefined && valor[1]!='' && valor[1] != undefined">
+                    <input type="radio" (click)="setValorSeleccionado('valor[1]')" name='{{lbl[0]}}' autocomplete="off"> {{lbl[1]}}
+                  </label>
               </div>
             </div>
           </div>
@@ -25,13 +29,19 @@
             <div class="card-body">
                 <div class="row">
                   <div class="col text-center">
-                    <button data-toggle="button" (click)="setValorSeleccionado(0)"  class="btn btn-warning">{{lbl[0]}}</button>
+                    <label class="btn btn-warning" *ngIf="ids[0]!= undefined && ids[0]!='' && lbl[0] != undefined">
+                      <input type="radio" (click)="setValorSeleccionado('valor[0]')" name='{{ids[0]}}' autocomplete="off"> {{lbl[0]}}
+                    </label>
                   </div>
                   <div class="col text-center">
-                    <button data-toggle="button" (click)="setValorSeleccionado(1)"  class="btn btn-warning">{{lbl[1]}}</button>
+                    <label class="btn btn-warning" *ngIf="ids[1]!= undefined && ids[1]!='' && lbl[1] != undefined">
+                      <input type="radio" (click)="setValorSeleccionado('valor[1]')" name='{{ids[1]}}' autocomplete="off"> {{lbl[1]}}
+                    </label>
                   </div>
                   <div class="col text-center">
-                    <button data-toggle="button" (click)="setValorSeleccionado(2)"  class="btn btn-warning">{{lbl[2]}}</button>
+                      <label class="btn btn-warning" *ngIf="ids[2]!= undefined && ids[2]!='' && lbl[2] != undefined">
+                        <input type="radio" (click)="setValorSeleccionado('valor[2]')" name='{{ids[2]}}' autocomplete="off"> {{lbl[2]}}
+                      </label>
                   </div>
                 </div>
             </div>
